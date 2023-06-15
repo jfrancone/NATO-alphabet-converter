@@ -13,13 +13,20 @@ dict = {row.letter:row.code for (index, row) in data.iterrows()}
 #print(dict)
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+is_word = False
 
-user_input = input("Please enter a word: ").upper()
-letter_list = [letter for letter in user_input]
-#print(letter_list)
+while not is_word:
+    user_input = input("Please enter a word: ").upper()
+    letter_list = [letter for letter in user_input]
+    #print(letter_list)
+    try:
+        output = [dict[letter] for letter in letter_list]
+        print(output)
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+    else:
+        is_word = True
 
-output = [dict[letter] for letter in letter_list]
-print(output)
 
 
 
